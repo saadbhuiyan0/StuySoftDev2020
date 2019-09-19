@@ -1,3 +1,8 @@
+#Saad Bhuiyan
+#SoftDev1 pd2
+#K6 -- Build a dictionary from a csv file and get a random (weighted) occupation
+#2019-09-16
+
 import csv
 import random
 
