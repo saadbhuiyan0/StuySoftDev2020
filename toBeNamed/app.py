@@ -7,28 +7,18 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/")
-def route1():
+def Hello_World():
     print(__name__)
-    return "first route"
+    return "Hello World!"
 
-@app.route("/1")
-def route2():
-    print(__name__)
-    print(__name__)
-    return "second route"
-
-@app.route("/2")
-def route3():
-    print(__name__)
-    print(__name__)
-    print(__name__)
-    return "third route"
-
-@app.route("/static")
-def helloWorld():
-    print(__name__)
+@app.route("/my_foist_template")
+def usingTemplate():
+    print("my_foist_template")
     coll = {0, 1, 2, 3, 4, 5}
-    return "hello world"
+    return render_template( 
+        'my_foist_template.html',
+        foo = "template", 
+        collection = coll)
 
 if __name__ == "__main__":
     app.debug = True
