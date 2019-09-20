@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> occupations.csv </title>
+    <style> 
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h1> occupations.csv </h1>
+    <h3> random occupation: </h3>
+    {{ randomOccupation }} <!-- needs to be input from render template -->
+    <h3> occupations.csv to HTML table </h3>
+    <table>
+      <tr>
+        <th>Job Class</th>
+        <th>Percentage</th>
+      </tr>
+        {% for key, value in dictionary %}
+          <tr>
+            <td> {{ key }} </td>
+            <td> {{ value }} </td>
+          <tr>
+        {% endfor %}
+      <tr>
+        <td>Total</td>
+        <td>99.8</td>
+      </tr>
+    </table>
+  </body>
+</html>
