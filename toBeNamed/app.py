@@ -1,6 +1,6 @@
-#Saad Bhuiyan
+#teamFakeMoonLanding_bhuiyanS_huangT
 #SoftDev1 pd2
-#classwork working with static folder and html
+#classwork working with static folder,templates, and html
 #2019-09-19
 
 from flask import Flask, render_template
@@ -17,7 +17,7 @@ def usingTemplate():
     coll = {0, 1, 2, 3, 4, 5}
     return render_template( 
         'my_foist_template.html',
-        foo = "template", 
+        foo = "teamFakeMoonLanding", 
         collection = coll)
 
 if __name__ == "__main__":
