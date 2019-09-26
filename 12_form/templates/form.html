@@ -1,29 +1,32 @@
 <!-- 
   Saad Bhuiyan and Benjamin Avrahami
   SoftDev1 pd2
-  K12 -- <Title/Topic/Summary>
-  <yyyy>-<mm>-<dd>  
+  K12 -- Using Python, Flask, Jinja2, and HTML to create a form and custom response.
+  2019-09-26
 -->  
 
 <!DOCTYPE html>
 <html>
   <head>
     <title>
-      form
+      Form
     </title>
   </head>
   <body>
     <!-- render template inputs to allow for ease of use -->
     <h1> {{ teamName }} </h1>
-    <h2> {{ teamMembers }} </h2>
-    {{ description }}
+    {{ teamMembers }}
+    <hr>
     <!-- the rest of the body is mostly modified based on the data being presented -->
+    <h3> Please make a donation to our puppy adoption fund! </h3>
     <form action="/auth">
-      <input type="text" name="username">
+      Name: 
+      <input type="text" name="name" value="Nihaluz Sudat Zaman">
       <br>
-      <input type="text" name="password">
+      Donation Amount:
+      <input type="text" name="donation" value="1">
       <br>
-      <input type="submit" name="submit">
+      <input type="submit" name="submit" value="Submit">
     </form>
   </body>
 </html>
