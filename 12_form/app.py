@@ -13,10 +13,18 @@ def form():
 
 @app.route("/auth")
 def authenticate():
-    print(app)
-    print(request)
-    print(request.args)
-    return "form submitted"
+    # print("\n\n\n")
+    # print("*** DIAG: this Flask obj***")
+    # print(app)
+    # print("*** DIAG: request obj ****")
+    # print(request)
+    # print("*** DIAG: request.args ****")
+    # print(request.args)
+    print("*** DIAG: request.args['username'] ****")
+    print(request.args['username'])
+    # print("*** DIAG: request.headers ****")
+    # print(request.headers)
+    return render_template("response.html")
 
 if __name__ == "__main__":
     app.debug = True
