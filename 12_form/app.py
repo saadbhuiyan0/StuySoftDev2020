@@ -37,7 +37,8 @@ def authenticate():
                             teamName = teamName,
                             teamMembers = teamMembers,
                             name = request.args['name'],
-                            donation = request.args['donation']
+                            donation = request.args['donation'],
+                            method = request.method
     )
 
 
