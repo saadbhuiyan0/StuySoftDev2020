@@ -6,13 +6,19 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 app = Flask(__name__)
 
+app.secret_key = "iDontLikeFish"
+
+teamName ="Team Cod"
+teamMembers ="Saad Bhuiyan and Coby Sontag"
+
 correctUsername = "teamCod"
 correctPassword = "fishAndChips"
-loggedIn = False
 
 @app.route("/")
 def root():
-    if loggedIn:
+    if not "loginStatus" in session:
+        session["loginStatus"] = False
+    if (session["loginStatus"]):
         print("redirect to /welcome from /")
         return redirect(url_for("welcome"))
     else:
@@ -23,31 +29,47 @@ def root():
 def welcome():
     print("welcome page")
     return render_template("welcome.html",
-                            username = correctUsername
+                            username = session["username"],
+                            teamName = teamName,
+                            teamMembers = teamMembers
     )
 
 @app.route("/login")
 def login():
-    print("log in page")
-    return render_template("login.html")
+    print("login page")
+    return render_template("login.html",
+                            teamName = teamName,
+                            teamMembers = teamMembers
+    )
 
-@app.route("/auth")
+@app.route("/auth", methods=["POST"])
 def auth():
     print("authentication")
     if request.form["username"] == correctUsername:
+        session["username"] = request.form["username"]
         if request.form["password"] == correctPassword:
-            loggedIn = True
+            session["loginStatus"] = True
+            print("valid login redirect to /welcome from /auth")
             return redirect(url_for("welcome"))
         else:
-            return "wrong password"
+            session["incorrect"] = "password"
+            print("invalid password redirect to /invalidLogin from /auth")
+            return redirect(url_for("invalidLogin"))
     else: 
-        return "wrong username"
+        session["incorrect"] = "username"
+        print("invalid username redirect to /invalidLogin from /auth")
+        return redirect(url_for("invalidLogin"))
+
+@app.route("/invalidLogin")
+def invalidLogin():
+    print("invalid login")
+    return "login failed due to incorrect " + session["incorrect"]
 
 @app.route("/logout")
 def logout():
     print("log out page")
-    loggedIn = False
-    return "Thanks for visiting!"
+    session["loginStatus"] = False
+    return "Thanks for visiting good bye!"
 
 if __name__ == "__main__":
     app.debug = True
