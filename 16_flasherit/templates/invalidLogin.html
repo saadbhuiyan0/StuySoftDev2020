@@ -1,28 +1,20 @@
 <!-- 
   Saad Bhuiyan and Coby Sontag
   SoftDev1 pd2
-  K15 -- Create a user log in experience
-  2019-10-02
+  K16 -- Add flashed messages to 15_login and use Jinja inheritance
+  2019-10-04
 -->  
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Invalid Login
-    </title>
-  </head>
-  <body>
-    <h1> {{ teamName }} </h1>
-    <h2> {{ teamMembers }} </h2>
-    <hr>
-    <br>
-    Login failed due to incorrect {{ value }}.
-    <br>
-    Would you like to reattempt?
-    <br>
-    <form action="/login">
-      <input type="submit" name="Reattempt" value="Reattempt">
-    </form>
-  </body>
-</html>
+{% extends "template.html" %}
+{% block title %} 
+  Invalid Login
+{% endblock %}
+{% block body %}
+  Login failed due to incorrect {{ value }}.
+  <br>
+  Would you like to reattempt?
+  <br>
+  <form action="/login">
+    <input type="submit" name="Reattempt" value="Reattempt">
+  </form>
+{% endblock %}

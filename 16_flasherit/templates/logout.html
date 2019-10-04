@@ -1,22 +1,14 @@
 <!-- 
   Saad Bhuiyan and Coby Sontag
   SoftDev1 pd2
-  K15 -- Create a user log in experience
-  2019-10-02
+  K16 -- Add flashed messages to 15_login and use Jinja inheritance
+  2019-10-04
 -->  
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Log Out
-    </title>
-  </head>
-  <body>
-    <h1> {{ teamName }} </h1>
-    <h2> {{ teamMembers }} </h2>
-    <hr>
-    <br>
-    Thanks for visiting our amazing page! Good bye!
-  </body>
-</html>
+{% extends "template.html" %}
+{% block title %}
+  Log Out
+{% endblock %}
+{% block body %}
+  Thanks for visiting our amazing page! Good bye!
+{% endblock %}
