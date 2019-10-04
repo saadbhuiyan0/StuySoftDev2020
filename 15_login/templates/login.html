@@ -16,12 +16,13 @@
     <h1> {{ teamName }} </h1>
     <h2> {{ teamMembers }} </h2>
     <hr>
-    <h3> Log in to your account. </h3>
+    Log in to your account.
+    <br>
+    <br>
     <form action="/auth" method="POST">
       Username: <input type="text" name="username">
       <br>
       Password: <input type="text" name="password">
-      <br>
       <br>
       <input type="submit" name="login" value="Log In">
     </form>

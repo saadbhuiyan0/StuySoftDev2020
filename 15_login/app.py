@@ -63,13 +63,20 @@ def auth():
 @app.route("/invalidLogin")
 def invalidLogin():
     print("invalid login")
-    return "login failed due to incorrect " + session["incorrect"]
+    return render_template("invalidLogin.html",
+                            teamName = teamName,
+                            teamMembers = teamMembers,
+                            value = session["incorrect"]
+    )
 
 @app.route("/logout")
 def logout():
     print("log out page")
     session["loginStatus"] = False
-    return "Thanks for visiting good bye!"
+    return render_template("logout.html",
+                            teamName = teamName,
+                            teamMembers = teamMembers
+    )
 
 if __name__ == "__main__":
     app.debug = True
