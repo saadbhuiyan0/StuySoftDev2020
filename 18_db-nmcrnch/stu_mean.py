@@ -15,21 +15,24 @@ c = db.cursor()               #facilitate db ops
 
 #==========================================================
 
-q = "SELECT name, students.id, mark FROM students, courses WHERE students.id = courses.id;"
+#q = "SELECT name, students.id, mark FROM students, courses WHERE students.id = courses.id;"
 
 #foo = c.execute(q)
 
 #for bar in foo:
    # print(bar)
 
-getGrades = "SELECT students.id, mark FROM students, courses WHERE students.id = courses.id;"
-grades = c.execute(getGrades)
 
-for grade in grades:
-    print(grade[0])
+getStudentIDandGrade = "SELECT students.id, mark FROM students, courses WHERE students.id = courses.id;"
+students = c.execute(getStudentIDandGrade)
 
-dict
-if (grade
+studentsDict = dict(students)
+
+for key,val in studentsDict.items():
+    print(key)
+    print(val)
+
+
 #==========================================================
 
 db.commit() #save changes
