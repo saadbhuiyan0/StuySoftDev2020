@@ -1,8 +1,8 @@
 # Team "bar"
 # Saad Bhuiyan & Ethan Chen
 # SoftDev1 pd2
-# K#17: No Trouble
-# 2019-10-07
+# K#18: Average
+# 2019-10-10
 
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitate CSV I/O
