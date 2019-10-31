@@ -1,0 +1,60 @@
+/*  
+    Saad Bhuiyan and David Wang
+    SoftDev pd2
+    K20 -- CSS basics
+    2019-11-01f
+
+    2_external/external_style.css 
+*/
+
+body {
+    background-color: #666666;
+    font-family: "arial";
+    font-weight: bold;  
+}
+
+h1 {
+    background-color: #BEBEBE;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 7px;
+}
+
+h3 {
+    color: #000000;
+}
+
+ul {
+    color: #DCDCDC;
+    list-style: none;
+    text-decoration: none;
+    padding-left: 0;
+}
+
+li {
+    color: #DCDCDC;
+    text-decoration: none;
+    text-align: left;
+}
+
+a {
+    color: #DCDCDC;
+    text-decoration: none;
+}
+
+h2 {
+    color:  #000000;
+}
+
+p {
+    color: #000000;
+    font-weight: normal;
+}
+
+footer {
+    background-color: #565656;
+    color: #767676;
+    text-align: right;
+    font-weight: normal;
+    padding: 7px;
+}
