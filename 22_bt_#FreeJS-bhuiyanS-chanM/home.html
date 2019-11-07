@@ -8,11 +8,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<title>
+			Bootstrap Tutorial 
+		</title>
 		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    	<title> 
-    		Bootstrap Tutorial
-    	</title>
     	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<style>
 			body {	
@@ -21,7 +21,14 @@
 				padding-top: 70px;
 			}
 			.jumbotron {
-				background-color:#8FC1E3;
+				background-color: #8FC1E3;
+			}
+			code {
+				padding-left: 4px;
+				padding-right: 4px;
+			}
+			pre {
+				color: #E83E8C;
 			}
 		</style>
 	</head>
@@ -36,10 +43,25 @@
                 	<a class="nav-link" href="#Getting Started">Getting Started</a>
               	</li>
 				<li class="nav-item">
-                	<a class="nav-link" href="#Navigation Bar">Navigation Bar</a>
+                	<a class="nav-link" href="#Typography">Typography</a>
               	</li>
 				<li class="nav-item">
-                	<a class="nav-link" href="#Jumbotron">Jumbotron</a>
+                	<a class="nav-link" href="#Utilities">Utilities</a>
+              	</li>
+				<li class="nav-item">
+                	<a class="nav-link" href="#Grids">Grids</a>
+              	</li>
+				<li class="nav-item">
+                	<a class="nav-link" href="#Tables">Tables</a>
+              	</li>
+				<li class="nav-item">
+                	<a class="nav-link" href="#Navbars">Navbars</a>
+              	</li>
+				<li class="nav-item">
+                	<a class="nav-link" href="#Jumbotrons">Jumbotrons</a>
+              	</li>
+				<li class="nav-item">
+                	<a class="nav-link" href="#Media Objects">Media Objects</a>
               	</li>
 				<li class="nav-item">
                 	<a class="nav-link" href="#More">More</a>
@@ -52,39 +74,221 @@
             <hr>
             <h3>From Team #FreeJS -- Saad B. & Matthew C.</h3>
         </div>
-		<hr>
+		<br><hr><br>
 		<div id="Bootstrap">
-			<h1>Bootstrap</h1>
-			<p>Bootstrap is a front-end framework for web development created at Twitter that later became open-source. It's a very popular framework utilized by sites such as NBA.com, Walmart.com, Target.com, and Bloomberg.com.</p>
-			<p>Bootstrap includes plenty of HTML and CSS based design templates for a variety of uses. It's great because it's pretty easy to learn, it allows for responsive web design, and it's compatible with a wide range of browsers. You can use Bootstrap to change the way elements on your page look or add completely new elements like forms, buttons, tables, navigation, etc. The list goes on.</p>
-			<h3>BootstrapCDN</h3>
-			<p>CDN stands for Content Delivery Network. You don't need to understand how that works but essentially it delivers web content to you (the end user). BootstrapCDN is the recommended CDN for Bootstrap. It's a public CDN that can load CSS, JavaScript and images remotely, from its servers. It's servers are very reliable and handle huge loads of traffic delivering more than 70 billion requests a month!</p>
+			<h1>Bootstrap</h1><br>
+			<p>Bootstrap is a front-end framework for web development created at Twitter that later became open-source. It's a very popular 
+			framework utilized by sites such as NBA.com, Walmart.com, Target.com, and Bloomberg.com.</p>
+			<p>Bootstrap includes plenty of HTML and CSS based design templates for a variety of uses. It's great because it's pretty easy to learn,
+			it allows for responsive web design, and it's compatible with a wide range of browsers and it works especially well for mobile devices. 
+			You can use Bootstrap to change the way elements on your page look or add completely new elements like forms, buttons, tables, navigation, etc. 
+			The list goes on.</p>
+			<br><h3>BootstrapCDN</h3><br>
+			<p>CDN stands for Content Delivery Network. You don't need to understand how that works but essentially it delivers web content 
+			to you (the end user). BootstrapCDN is the recommended CDN for Bootstrap. It's a public CDN that can load CSS, JavaScript and 
+			images remotely, from its servers. It's servers are very reliable and handle huge loads of traffic delivering more than 70 billion 
+			requests a month!</p>
 		</div>
-		<hr>
+		<br><hr><br>
 		<div id="Getting Started">
-			<h1>Getting Started with Bootstrap</h1>
-			<p>To use Bootstrap's compiled CSS, we are going to use the BootstrapCDN. To do so, we have to include this line of code in the head of the HTML file (HTML5 doctype is required):<br><code>&lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;</code></p>
-			<p>
+			<h1>Getting Started with Bootstrap</h1><br>
+			<p>Bootstrap uses HTML elements and CSS properties that require the HTML5 doctype so that must be included at the beginning 
+			(as well as the lang attribute). Meta tag for the proper charset should be in the head as well as the responsive viewport meta tag
+			to ensure proper rendering and zoom touching of the site on all devices. The beginning of the HTML file should include these lines:
+				<pre><code>
+					&lt;!DOCTYPE html&gt;
+					&lt;html lang="en"&gt;
+						&lt;head&gt;
+							&lt;meta charset="utf-8"&gt;
+							&lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+						&lt;/head&gt;
+				</code></pre>
+			</p>
+			<br>
+			<p>To use Bootstrap's compiled CSS, we are going to use the BootstrapCDN. To do so, we have to include this line of code in the head of the HTML file:
+				<pre><code>
+					&lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;
+				</code></pre>
+			</p>
 		</div>
-		<hr>
-		<div id="Navigation Bar">
-            <h1>Navigation Bar</h1>
-            <p>That dark gray bar that always sticks to the top of your screen is this is the navigation bar. We made it so that it is always there on your screen but that's just one of many customization options. You can change the colors, the links, the brand, the logo, etc. You can even add a dropdown menu to it or a form like a search bar.</p>
+		<br><hr><br>
+		<div id="Typography">
+			<h1>Typography</h1><br>
+			<p>Typography has to do with styling and appearance. Which is pretty important, we can't have an ugly looking website now can we?
+			Bootstrap has a lot of nice features to help make the text on the site more visually appealing. It changes the way the already existing
+			HTML header tags <code>&lt;h#&gt;</code> look to be more modern. It also display headings of which there are four classes to choose 
+			from - <code>.display-1|2|3|4</code>. There is also a <code>&lt;small&gt;</code> element which is used for secondary texts. 
+			Here are some other nice features you might chose to implement in your design:
+				<ul>
+					<li>
+						Text Colors: Classes for text color using <code>.text-</code>.
+					</li>
+					<li>
+						Text Formatting: Classes for the text formatting using <code>.text-</code>.
+					</li>
+					<li>
+						Text Background Colors: Classes for the background color of the text using <code>.bg-</code>.
+					</li>
+					<li>
+						Font Styles: Classes for the font's style using <code>.fonts-</code>.
+					</li>
+					<li>
+						Code: Element used to add text as code using <code>&lt;code&gt;</code>.
+					</li>
+					<li>
+						Keyboard Input: Element used to indicate keyboard inputs using <code>&lt;kbd&gt;</code>.
+					</li>
+					<li>
+						Blockquote: Classes used to add a blockquote by implementing <code>.blockquote</code> to a <code>&lt;blockquote&gt;</code> element.
+					</li>
+				</ul>
+			</p>
+		</div>
+		<br><hr><br>
+		<div id="Utilities">
+			<h1>Utilities</h1><br>
+			<p>Utility classes are used to apply CSS-like styling quickly and efficiently to a variety of elements.
+			Here are some other utility classes you might chose to implement in your design:
+				<ul>
+					<li>Borders</li>
+					<li>Border Color</li>
+					<li>Border Radius</li>
+					<li>Float/Clearfix</li>
+					<li>Width/Height</li>
+					<li>Spacing</li>
+					<li>Shadows</li>
+				</ul>
+			We won't get into detail about each class as there are so many and they are highly customizable. You should definitely
+			take a look at them and play around, see what you like and don't like - these might be very helpful later on.
+			</p>
+		</div>
+		<br><hr><br>
+		<div id="Grids">
+			<h1>Grids</h1><br>
+			<p>Bootstrap uses a 12 column wide grid system built with flexbox. Not all 12 columns have to be used individually, they can 
+			range from 12 columns of width 1 to 1 column that has width 12. They also do not need have equal width, you can have a 1 column 
+			width 2 and another width 4 and the final width 6. The grid system is responsive and will rearrange depending on screen size.</p>
+			<p>There are five grid classes: 
+				<ul>
+					<li><code>.col-</code> for extra small devices.</li>
+					<li><code>.col-sm-</code> for small devices.</li>
+					<li><code>.col-md-</code> for medium devices.</li>
+					<li><code>.col-lg-</code> for large devices.</li>
+					<li><code>.col-xl-</code> for extra large devices.</li>
+				</ul>
+				Note: The classes scale up.
+			</p><br>
+
+
+
+			
+			<p>Here are some examples of different column setups using grids, and the code that creates them.</p>
+			
+
+
+	
+			
+
+			COLUMN EXAMPLES HERE
+
+
+
+
+
+		</div>
+		<br><hr><br>
+		<div id="Tables">
+			<h1>Tables</h1><br>
+
+
+
+
+			<p>what is table why use</p>
+			<p>examples</p>
+
+
+
+
+
+
+
+			tables here
+
+
+
+
+
+
+
+
+		</div>
+		<br><hr><br>
+		<div id="Navbars">
+            <h1>Navbars</h1><br>
+			<p>A navbar is essentially a menu, it can be horizontal, or vertical, collapse, or extend, etc. 
+			It is created using the <code>.navbar</code> class with the responsive class right after <code>.navbar-expand-sm|md|lg|xl</code>.
+			The navbar contains an <code>&lt;ul&gt;</code> element with <code>class="navbar-nav"</code> with content as <code>&lt;li&gt;</code> 
+			elements with <code>class="nav-item"</code> which can then have a link with in an <code>&lt;a&gt;</code> element with 
+			<code>class="nav-link"</code>.</p>
+			<p>A very basic example of what this would like look put together in HTML is:
+				<pre><code>
+					&lt;nav class="navbar navbar-expand-sm"&gt;
+						&lt;ul class="navbar-nav"&gt;
+							&lt;li class="nav-item"&gt;
+								&lt;a class="nav-link"&gt;Link 1&lt;/a&gt;
+							&lt;/li&gt;
+							&lt;li class="nav-item"&gt;
+								&lt;a class="nav-link"&gt;Link 2&lt;/a&gt;
+							&lt;/li&gt;
+						&lt;/ul&gt;
+					&lt;/nav&gt; 
+				</code></pre>
+			</p>
+            <p>That dark gray bar that always sticks to the top of your screen is this our navigation bar. 
+			We made it so that it is always there on your screen but that's just one of many customization options. 
+			You can change the colors, the links, the brand, the logo, etc. You can even add, pills, tabs, dropdown menus, 
+			or even a form like a search bar (using JavaScript and jQuery). In our case all we did was add a <code>.navbar-brand</code> class, 
+			change around the style, use anchors, and make it stick to the top with <code>.sticky-top</code>.</p>
+			<p>Bootstrap also has a <code>.nav</code> class and we're not sure what the difference is as it seems they can be used interchangeably.
+			Once we are educated on the difference we will amend this section appropriately.</p>
         </div>
-		<hr>
-        <div id="Jumbotron" class="jumbotron text-center">
-            <h1>This is a Jumbotron</h1>
+		<br><hr><br>
+		<div id="Jumbotrons" class="jumbotron text-center">
+            <h1>This is a Jumbotron</h1><br>
 			<h5>(like the first blue box)</h5>
 			<br>
-            <p>It's basically a large box that you can put stuff in. It's a nice way to isolate and call attention to something (ex: welcoming users of a website)	. It is not limited to a gray box, it can be anything from a color to an image to a video.</p>
+            <p>It's basically a large box that you can put stuff in. It's a nice way to isolate and call attention to something 
+			(ex: welcoming users to a website). It is not limited to a gray box, it can be anything from a color to an image to a video.</p>
 			<p>To create a jumbotron you use a <code>&lt;div&gt;</code> element with class <code>.jumbotron</code>. 
 			<p><small>P.S. You can add code elements like the ones in the last line with the <code>&lt;code&gt;</code> tag.</small></p>
         </div>
-		<hr>
+		<br><hr><br>
+		<div id="Media Objects">
+			<h1>Media Objects</h1><br>
+			<p>Media objects are a nice way of putting media together with content. There are many ways to incorporate them.
+			One way is with the <code>.media</code> class containing media content in a <code>.media-body</code> class.
+			They can be nested, or arranged, or formatted and styled in many different ways.</p>
+			<div class="media border p-3" style="background-color:#FFFFFF;">
+				<img src="defaultpfp.jpg" alt="Default" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+				<div class="media-body">
+					<h4>Default <small><i>Profile Picture</i></small></h4>
+					<p>Description</p>
+				</div>
+			</div>
+			<br>
+			<h3>Cards</h3>
+			<p>Cards are similar to media objects as it is essentially a box with a header, body, and footer - 
+			each of which can contain a variety of elements.</p>
+		</div>
+		<br><hr><br>
 		<div id="More">
-            <h1>More cool things you can do with Bootstrap</h1>
-			<h3>... with JavaScript. </h3>
-            <p>Buttons, drop downs, forms, etc.</p>
+            <h1>More cool things you can do with Bootstrap</h1><br>
+			<p>You can add nice visual aspects like badges, progress bars, spinners, icons, etc. to make your site standout.
+			 We won't get into the details as they are pretty simple elements.</p><br>
+			<h3>... with JavaScript and jQuery. </h3><br>
+            <p>Buttons, drop downs, collapsibles, modals, carousels, alerts, tooltips, toasts, paginations, etc. are all really cool responsive elements
+			you can add using Bootstrap but they require JavaScript and/or jQuery. For now we will ignore these elements but it's nice to know 
+			they exist as an option. Once we learn how to incorporate these into our websites, we will update the tutorial site.</p>
 		</div>
   	</body>
 </html>
