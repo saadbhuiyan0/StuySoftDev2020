@@ -33,7 +33,7 @@
 		</style>
 	</head>
 	<body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center fixed-top">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center fixed-top" style="margin-bottom:50px;">
 			<a class="navbar-brand" href="#">#FreeJS</a>
 			<ul class="navbar-nav">
 				<li class="nav-item">
@@ -45,6 +45,12 @@
 				<li class="nav-item">
                 	<a class="nav-link" href="#Typography">Typography</a>
               	</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Navbars">Navbars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Jumbotrons">Jumbotrons</a>
+                </li>
 				<li class="nav-item">
                 	<a class="nav-link" href="#Utilities">Utilities</a>
               	</li>
@@ -53,12 +59,6 @@
               	</li>
 				<li class="nav-item">
                 	<a class="nav-link" href="#Tables">Tables</a>
-              	</li>
-				<li class="nav-item">
-                	<a class="nav-link" href="#Navbars">Navbars</a>
-              	</li>
-				<li class="nav-item">
-                	<a class="nav-link" href="#Jumbotrons">Jumbotrons</a>
               	</li>
 				<li class="nav-item">
                 	<a class="nav-link" href="#Media Objects">Media Objects</a>
@@ -85,9 +85,9 @@
 			The list goes on.</p>
 			<br><h3>BootstrapCDN</h3><br>
 			<p>CDN stands for Content Delivery Network. You don't need to understand how that works but essentially it delivers web content 
-			to you (the end user). BootstrapCDN is the recommended CDN for Bootstrap. It's a public CDN that can load CSS, JavaScript and 
-			images remotely, from its servers. It's servers are very reliable and handle huge loads of traffic delivering more than 70 billion 
-			requests a month!</p>
+            to you (the end user) without having to download the files. BootstrapCDN is the recommended CDN for Bootstrap. It's a public CDN 
+            that can load CSS, JavaScript and images remotely, from its servers. It's servers are very reliable and handle huge loads of traffic 
+            delivering more than 70 billion requests a month!</p>
 		</div>
 		<br><hr><br>
 		<div id="Getting Started">
@@ -121,16 +121,16 @@
 			Here are some other nice features you might chose to implement in your design:
 				<ul>
 					<li>
-						Text Colors: Classes for text color using <code>.text-</code>.
+						Text Colors: Classes for text color using <code>.text-(...)</code>.
 					</li>
 					<li>
-						Text Formatting: Classes for the text formatting using <code>.text-</code>.
+						Text Formatting: Classes for the text formatting using <code>.text-(...)</code>.
 					</li>
 					<li>
-						Text Background Colors: Classes for the background color of the text using <code>.bg-</code>.
+						Text Background Colors: Classes for the background color of the text using <code>.bg-(...)</code>.
 					</li>
 					<li>
-						Font Styles: Classes for the font's style using <code>.fonts-</code>.
+						Font Styles: Classes for the font's style using <code>.fonts-(...)</code>.
 					</li>
 					<li>
 						Code: Element used to add text as code using <code>&lt;code&gt;</code>.
@@ -144,7 +144,45 @@
 				</ul>
 			</p>
 		</div>
-		<br><hr><br>
+        <br><hr><br>
+        <div id="Navbars">
+            <h1>Navbars</h1><br>
+            <p>A navbar is essentially a menu, it can be horizontal, or vertical, collapse, or extend, etc. 
+            It is created using the <code>.navbar</code> class with the responsive class right after <code>.navbar-expand-sm|md|lg|xl</code>.
+            The navbar contains an <code>&lt;ul&gt;</code> element with <code>class="navbar-nav"</code> with content as <code>&lt;li&gt;</code> 
+            elements with <code>class="nav-item"</code> which can then have a link with in an <code>&lt;a&gt;</code> element with 
+            <code>class="nav-link"</code>.</p>
+            <p>A very basic example of what this would like look put together in HTML is:
+                <pre><code>
+                    &lt;nav class="navbar navbar-expand-sm"&gt;
+                        &lt;ul class="navbar-nav"&gt;
+                            &lt;li class="nav-item"&gt;
+                                &lt;a class="nav-link"&gt;Link 1&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li class="nav-item"&gt;
+                                &lt;a class="nav-link"&gt;Link 2&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/nav&gt; 
+                </code></pre>
+            </p>
+            <p>That dark gray bar that always sticks to the top of your screen is this our navigation bar. 
+            We made it so that it is always there on your screen but that's just one of many customization options. 
+            You can change the colors, the links, the brand, the logo, etc. You can even add, pills, tabs, dropdown menus, 
+            or even a form like a search bar (using JavaScript and jQuery). In our case all we did was add a <code>.navbar-brand</code> class, 
+            change around the style, use anchors, and make it stick to the top with <code>.sticky-top</code>.</p>
+        </div>
+        <br><hr><br>
+        <div id="Jumbotrons" class="jumbotron text-center">
+            <h1>This is a Jumbotron</h1><br>
+            <h5>(like the first blue box)</h5>
+            <br>
+            <p>It's basically a large box that you can put stuff in. It's a nice way to isolate and call attention to something 
+            (ex: welcoming users to a website). It is not limited to a gray box, it can be anything from a color to an image to a video.</p>
+            <p>To create a jumbotron you use a <code>&lt;div&gt;</code> element with class <code>.jumbotron</code>. 
+            <p><small>P.S. You can add code elements like the ones in the last line with the <code>&lt;code&gt;</code> tag.</small></p>
+        </div>
+        <br><hr><br>
 		<div id="Utilities">
 			<h1>Utilities</h1><br>
 			<p>Utility classes are used to apply CSS-like styling quickly and efficiently to a variety of elements.
@@ -170,103 +208,149 @@
 			width 2 and another width 4 and the final width 6. The grid system is responsive and will rearrange depending on screen size.</p>
 			<p>There are five grid classes: 
 				<ul>
-					<li><code>.col-</code> for extra small devices.</li>
-					<li><code>.col-sm-</code> for small devices.</li>
-					<li><code>.col-md-</code> for medium devices.</li>
-					<li><code>.col-lg-</code> for large devices.</li>
-					<li><code>.col-xl-</code> for extra large devices.</li>
+					<li><code>.col-#</code> for extra small devices.</li>
+					<li><code>.col-sm-#</code> for small devices.</li>
+					<li><code>.col-md-#</code> for medium devices.</li>
+					<li><code>.col-lg-#</code> for large devices.</li>
+					<li><code>.col-xl-#</code> for extra large devices.</li>
 				</ul>
 				Note: The classes scale up.
-			</p><br>
+            </p><br>
+            
+            <p>Here is an example of a column setup using grids:</p>
 
-
-
-
-			<p>Here are some examples of different column setups using grids, and the code that creates them.</p>
-			
-
-
-	
-			
-
-			COLUMN EXAMPLES HERE
-
-
-
-
-
-		</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="background-color: #8FC1E3;">.col-md-12</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" style="background-color: #A997DF;">.col-md-6</div>
+                    <div class="col-md-3" style="background-color: #AEADF0;">.col-md-3</div>
+                    <div class="col-md-2" style="background-color: #A997DF;">.col-md-2</div>
+                    <div class="col-md-1" style="background-color: #AEADF0;">.col-md-1</div>
+                </div>
+                <div class="row">
+                    <div class="col" style="background-color: #8FC1E3;">.col</div>
+                    <div class="col" style="background-color: #8FC1E3;">.col</div>
+                    <div class="col" style="background-color: #8FC1E3;">.col</div>
+                    <div class="col" style="background-color: #8FC1E3;">.col</div>
+                </div>
+            </div>
+            <br><br>
+            <p>Here is the code that creates the example above:</p>
+            <pre><code>
+                &lt;div class="container"&gt;
+                    &lt;div class="row"&gt;
+                        &lt;div class="col-md-12" style="background-color: #8FC1E3;"&gt;.col-md-12&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="row"&gt;
+                        &lt;div class="col-md-6" style="background-color: #A997DF;"&gt;.col-md-6&lt;/div&gt;
+                        &lt;div class="col-md-3" style="background-color: #AEADF0;"&gt;.col-md-3&lt;/div&gt;
+                        &lt;div class="col-md-2" style="background-color: #A997DF;"&gt;.col-md-2&lt;/div&gt;
+                        &lt;div class="col-md-1" style="background-color: #AEADF0;"&gt;.col-md-1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="row"&gt;
+                        &lt;div class="col" style="background-color: #8FC1E3;"&gt;.col&lt;/div&gt;
+                        &lt;div class="col" style="background-color: #8FC1E3;"&gt;.col&lt;/div&gt;
+                        &lt;div class="col" style="background-color: #8FC1E3;"&gt;.col&lt;/div&gt;
+                        &lt;div class="col" style="background-color: #8FC1E3;"&gt;.col&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+        </div>
 		<br><hr><br>
 		<div id="Tables">
 			<h1>Tables</h1><br>
+            <p>Tables in Bootstrap are great for organizing data and are easily customizable with the modifier classes it provides.</p>
+            <p>These are a few of the table classes available: 
+                <ul>
+                    <li><code>.table-dark</code> for making your table dark themed</li>
+                    <li><code>.table-striped</code> for making your table rows alternatingly colored</li>
+                    <li><code>.table-bordered</code> for adding a border around your table</li>
+                    <li><code>.table-hover</code> for giving your table an effect when hovered over</li>
+                    <li><code>.table-sm</code> for making your table more compact</li>
+                </ul>
+            </p><br>
 
-
-
-
-			<p>what is table why use</p>
-			<p>examples</p>
-
-
-
-
-
-
-
-			tables here
+			<p>Here is an example of a table using some of the table modifier classes:</p>
+            <table class="table table-dark table-striped table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">0</th>
+                        <td colspan="2">Clyde "Thluffy" Sinclair</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Saad</td>
+                        <td>Bhuiyan</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Matthew</td>
+                        <td>Chan</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <p>Here is the code that creates the example above:</p>
+            <pre><code>
+                &lt;table class="table table-dark table-striped table-bordered table-hover"&gt;
+                    &lt;thead class="thead-light"&gt;
+                        &lt;tr&gt;
+                            &lt;th scope="col"&gt;#&lt;/th&gt;
+                            &lt;th scope="col"&gt;First&lt;/th&gt;
+                            &lt;th scope="col"&gt;Last&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr&gt;
+                            &lt;th scope="row"&gt;0&lt;/th&gt;
+                            &lt;td colspan="2"&gt;Clyde "Thluffy" Sinclair&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;th scope="row"&gt;1&lt;/th&gt;
+                            &lt;td&gt;Saad&lt;/td&gt;
+                            &lt;td&gt;Bhuiyan&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;th scope="row"&gt;2&lt;/th&gt;
+                            &lt;td&gt;Matthew&lt;/td&gt;
+                            &lt;td&gt;Chan&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            </code></pre>
 
 
 
 			<br>
 			<h3>List Groups</h3><br>
-
-
-
-			<p>what dat similar to table</p>
-			<p>examples</p>
-
-
-
-
-		</div>
-		<br><hr><br>
-		<div id="Navbars">
-            <h1>Navbars</h1><br>
-			<p>A navbar is essentially a menu, it can be horizontal, or vertical, collapse, or extend, etc. 
-			It is created using the <code>.navbar</code> class with the responsive class right after <code>.navbar-expand-sm|md|lg|xl</code>.
-			The navbar contains an <code>&lt;ul&gt;</code> element with <code>class="navbar-nav"</code> with content as <code>&lt;li&gt;</code> 
-			elements with <code>class="nav-item"</code> which can then have a link with in an <code>&lt;a&gt;</code> element with 
-			<code>class="nav-link"</code>.</p>
-			<p>A very basic example of what this would like look put together in HTML is:
-				<pre><code>
-					&lt;nav class="navbar navbar-expand-sm"&gt;
-						&lt;ul class="navbar-nav"&gt;
-							&lt;li class="nav-item"&gt;
-								&lt;a class="nav-link"&gt;Link 1&lt;/a&gt;
-							&lt;/li&gt;
-							&lt;li class="nav-item"&gt;
-								&lt;a class="nav-link"&gt;Link 2&lt;/a&gt;
-							&lt;/li&gt;
-						&lt;/ul&gt;
-					&lt;/nav&gt; 
-				</code></pre>
-			</p>
-            <p>That dark gray bar that always sticks to the top of your screen is this our navigation bar. 
-			We made it so that it is always there on your screen but that's just one of many customization options. 
-			You can change the colors, the links, the brand, the logo, etc. You can even add, pills, tabs, dropdown menus, 
-			or even a form like a search bar (using JavaScript and jQuery). In our case all we did was add a <code>.navbar-brand</code> class, 
-			change around the style, use anchors, and make it stick to the top with <code>.sticky-top</code>.</p>
-			<p>Bootstrap also has a <code>.nav</code> class and we're not sure what the difference is as it seems they can be used interchangeably.
-			Once we are educated on the difference we will amend this section appropriately.</p>
-        </div>
-		<br><hr><br>
-		<div id="Jumbotrons" class="jumbotron text-center">
-            <h1>This is a Jumbotron</h1><br>
-			<h5>(like the first blue box)</h5>
-			<br>
-            <p>It's basically a large box that you can put stuff in. It's a nice way to isolate and call attention to something 
-			(ex: welcoming users to a website). It is not limited to a gray box, it can be anything from a color to an image to a video.</p>
-			<p>To create a jumbotron you use a <code>&lt;div&gt;</code> element with class <code>.jumbotron</code>. 
-			<p><small>P.S. You can add code elements like the ones in the last line with the <code>&lt;code&gt;</code> tag.</small></p>
+			<p>List groups are ways to display list items and series of items. They are easily styled and Bootstrap provides not only 
+            base styling, but also specialized classes to modify list groups. List group items can also have any content within them
+            including, but not limited to, buttons, badges, and any amount of text.</p>
+            <br>
+			<p>An example List Group with some of the special classes you can use:</p>
+            <ul class="list-group">
+                <li class="list-group-item"><code>.list-group-item</code> - regular list group item</li>
+                <li class="list-group-item active"><code>.active</code> - sets an active selected item</li>
+                <li class="list-group-item disabled"><code>.disabled</code> - disables an item</li>
+            </ul>
+            <br>
+            <p>Code for the example above:</p>
+            <pre><code>
+                &lt;ul class="list-group"&gt;
+                    &lt;li class="list-group-item"&gt;&lt;code&gt;.list-group-item&lt;/code&gt; - regular list group item&lt;/li&gt;
+                    &lt;li class="list-group-item active"&gt;&lt;code&gt;.active&lt;/code&gt; - sets an active selected item&lt;/li&gt;
+                    &lt;li class="list-group-item disabled"&gt;&lt;code&gt;.disabled&lt;/code&gt; - disables an item&lt;/li&gt;
+                &lt;/ul&gt;
+            </code></pre>
         </div>
 		<br><hr><br>
 		<div id="Media Objects">
@@ -286,15 +370,33 @@
 			<p>Cards are similar to media objects as it is essentially a box with a header, body, and footer - 
 			each of which can contain a variety of elements.</p>
 		</div>
-		<br><hr><br>
+        <br><hr><br>
+        <div class="jumbotron text-center">
+                <h1 class="display-1">CONGRATULATIONS</h1>
+                <hr>
+                <h2>You have completed this Bootstrap Tutorial! Go experiment and create your own pages using Bootstrap!</h2>
+                <br><br>
+                <p>(PS: There are a few more resources below)</p>
+            </div>
+        <br><br><br><br><br><br><br><br><br><br><hr><br>
 		<div id="More">
             <h1>More cool things you can do with Bootstrap</h1><br>
-			<p>You can add nice visual aspects like badges, progress bars, spinners, icons, etc. to make your site standout.
-			 We won't get into the details as they are pretty simple elements.</p><br>
+			<p>You can add nice visual aspects like badges, progress bars, spinners, icons, etc. to make your site standout. 
+            We won't get into the details as they are pretty simple elements.</p><br>
+            
 			<h3>... with JavaScript and jQuery. </h3><br>
             <p>Buttons, drop downs, collapsibles, modals, carousels, alerts, tooltips, toasts, paginations, etc. are all really cool responsive elements
 			you can add using Bootstrap but they require JavaScript and/or jQuery. For now we will ignore these elements but it's nice to know 
-			they exist as an option. Once we learn how to incorporate these into our websites, we will update the tutorial site.</p>
-		</div>
+            they exist as an option. Once we learn how to incorporate these into our websites, we will update the tutorial site.</p>
+            
+            <h1>Additional Resources:</h1>
+            <div class="list-group">
+                <a href="https://www.w3schools.com/bootstrap4/bootstrap_ref_all_classes.asp" class="list-group-item list-group-item-primary">A List of All Bootstrap 4 Classes</a>
+                <a href="https://www.w3schools.com/bootstrap4/bootstrap_typography.asp" class="list-group-item">More About Text/Typography</a>
+                <a href="https://getbootstrap.com/docs/4.0/components/navbar/" class="list-group-item">More About Navbars (with JS too)</a>
+                <a href="https://getbootstrap.com/docs/4.1/layout/grid/" class="list-group-item">More About Bootstrap Grid System and Layout</a>
+                <a href="https://getbootstrap.com/docs/4.0/layout/media-object/" class="list-group-item">More About Media Objects</a>
+            </div>
+        </div>
   	</body>
 </html>
