@@ -9,7 +9,6 @@ import json
 from random import randint
 
 app = Flask(__name__)
-nasa_api_key="0tIjwlghw1YoRsGOGwHh4PRIUkx5KtvknEbkEelY"
 
 #render template for Balldontlie API specifically querying kyrie (to find Kyrie Irving)
 @app.route("/balldontlie")
