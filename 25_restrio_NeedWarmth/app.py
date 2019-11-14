@@ -3,12 +3,21 @@
 #K25 -- Many APIs in One Flask App
 #2019-11-13  
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 import urllib3
 import json
 from random import randint
 
 app = Flask(__name__)
+
+@app.route("/")
+def root():
+    return render_template("index.html")
+
+@app.route("/process")
+def process():
+    page = request.args.get("page")
+    return redirect(url_for(page))
 
 #render template for Balldontlie API specifically querying kyrie (to find Kyrie Irving)
 @app.route("/balldontlie")
@@ -33,7 +42,7 @@ def balldontlie():
 
 #render template for MetaWeather API displaying weather in woeid 2459115 (New York) for today and the next 5 days
 @app.route("/metaweather")
-def city_bike():
+def metaweather():
     location_id = str(2459115)
     print(__name__)
     print("MetaWeather for " + location_id)
@@ -85,6 +94,26 @@ def xkcd():
                             title=data["title"],
                             image_src=data["img"],
                             image_alt=data["alt"])
+
+@app.route("/spacex")
+def spacex():
+    print(__name__)
+    print("spacex")
+    api_call = "https://api.spacexdata.com/v3/history"
+    http = urllib3.PoolManager()
+    response = http.urlopen("GET", api_call)
+    data = json.loads(response.data)
+    return render_template("spacex.html", history = data)
+
+@app.route("/theysaidso")
+def theysaidso():
+    print(__name__)
+    print("theysaidso")
+    api_call = "http://quotes.rest/qod.json?category=inspire"
+    http = urllib3.PoolManager()
+    response = http.urlopen("GET", api_call)
+    data = json.loads(response.data)
+    return render_template("theysaidso.html", quote = data)
 
 if __name__ == "__main__":
     app.debug = True

@@ -1,0 +1,29 @@
+<!-- 
+	Need Warmth -- Saad Bhuiyan and Justin Chen 
+	SoftDev1 pd2
+	K25 -- Many APIs in One Flask App
+	2019-11-13
+-->  
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> 
+			They Said So
+		</title>
+	</head>
+	<body>
+        <h1>They Said So API</h1>
+        <hr>
+        <img src = {{quote.contents.quotes.0.background}}>
+        <br>
+        <b style = "font-size:30px;"> {{quote.contents.quotes.0.quote}} </b>
+        <br>
+        By: {{quote.contents.quotes.0.author}}
+    </body>
+    
+    <footer>
+        <br>
+        &copy {{quote.contents.copyright}}
+    </footer>
+</html>

@@ -1,0 +1,29 @@
+<!-- 
+	Need Warmth -- Saad Bhuiyan and Justin Chen 
+	SoftDev1 pd2
+	K25 -- Many APIs in One Flask App
+	2019-11-13
+-->  
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> 
+			Spacex History
+		</title>
+	</head>
+	<body>
+        <h1>SpaceX API</h1>
+		<hr>
+        {% for event in history %}
+            <b style = "font-size:30px;"> {{event.title}} </b>
+            <br>
+            Date: {{event.event_date_utc}}
+            <br><br>
+            {{event.details}}
+            <br>
+            <a href = {{event.links.article}}> Article </a>
+            <hr>
+        {% endfor %}
+	</body>
+</html>
