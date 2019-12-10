@@ -25,7 +25,18 @@ var fibonacci = function(n) {
 
 // gcd(a,b) returns the greatest common divisor of the input numbers a and b
 var gcd = function(a,b) {
-    return 0;
+    var gcd = function(a,b) {
+        if (b > a) {var temp=a; a=b; b=temp;}
+        var x = 1;
+        var ans = 0;
+        while (x <= a) {
+          if ((a % x == 0) && (b % x == 0)) {
+            ans = x;
+          }
+          x = x + 1;
+        }
+        return ans;
+    }      
 }
 
 
