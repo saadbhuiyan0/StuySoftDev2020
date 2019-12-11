@@ -1,3 +1,9 @@
+// Saad Bhuiyan and Alex Olteanu
+// SoftDev1 p2
+// K27 -- Intro to JS
+// 2019-12-10
+
+
 // factorial(n) returns the factorial of the input number
 var factorial = function(n) {
     if (n > 1) {
