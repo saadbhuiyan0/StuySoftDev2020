@@ -56,7 +56,37 @@ var randomStudent = function() {
 }
 
 
-// function to assist console output and page 
-var getOutput = function(func) {
-    return "console.log("+ func + "); document.getElementById('answer').innerHTML=" + func + ";"
-}
+// factorial button
+var factorialButton = document.getElementById("factorialButton");
+var factorialOutput = function() {
+    console.log(factorial(5));
+    document.getElementById("factorialOutput").innerHTML = factorial(5);
+};
+factorialButton.addEventListener("click", factorialOutput)
+
+
+// fibonacci button
+var fibonacciButton = document.getElementById("fibonacciButton");
+var fibonacciOutput = function() {
+    console.log(fibonacci(7));
+    document.getElementById("fibonacciOutput").innerHTML = fibonacci(7);
+};
+fibonacciButton.addEventListener("click", fibonacciOutput)
+
+
+// gcd button
+var gcdButton = document.getElementById("gcdButton");
+var gcdOutput = function() {
+    console.log(gcd(111,18));
+    document.getElementById("gcdOutput").innerHTML = gcd(111,18);
+};
+gcdButton.addEventListener("click", gcdOutput)
+
+
+// randomStudent button
+var randomStudentButton = document.getElementById("randomStudentButton");
+var randomStudentOutput = function() {
+    console.log(randomStudent());
+    document.getElementById("randomStudentOutput").innerHTML = randomStudent();
+};
+randomStudentButton.addEventListener("click", randomStudentOutput)
