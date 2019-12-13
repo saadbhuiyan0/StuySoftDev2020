@@ -29,8 +29,12 @@ var addItem = function(e) {
     var list = document.getElementById("thelist");
     var item = document.createElement("li");
     item.innerHTML = "WORD";
+    item.addEventListener("mouseover", changeHeading);
+    item.addEventListener("mouseout", () => {
+        document.getElementById("h").innerHTML = "Hello World!";
+    });
+    item.addEventListener("click", removeItem);
     list.appendChild(item);
-    // doesnt allow us to remove, something with lis maybe?
 };
 
 var button = document.getElementById("b");
