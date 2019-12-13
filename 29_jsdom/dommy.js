@@ -8,7 +8,6 @@
 var changeHeading = function(e) {
     var h = document.getElementById("h");
     h.innerHTML = this.innerHTML;
-    console.log(this.innerHTML);
 };
 
 var removeItem = function(e) {
@@ -46,12 +45,22 @@ var fib = function(n) {
     }
 };
 
-// var addFib = function(e) {
-//     console.log(e);
-//     ???
-//     ... see QAF re: DYNAMIC PROGRAMMING...
-//     ???
-// };
+var addFib = function(e) {
+    var fibList = document.getElementById("fiblist");
+    var fibNumber = fibList.childNodes.length;
+    var nextFib = document.createElement("li");
+    // nextFib.innerHTML = fib(fibNumber);
+    if (fibNumber < 3) {
+        nextFib.innerHTML = fib(fibNumber);
+    }
+    else {
+        var lastFib = fibList.lastChild.innerHTML;
+        var beforeLastFib = fibList.lastChild.previousSibling.innerHTML;
+        nextFib.innerHTML = parseInt(lastFib) + parseInt(beforeLastFib);
+    }
+    fibList.appendChild(nextFib);
+    console.log(nextFib);
+};
 
-// var fb = document.getElementById("fb");
-// fb.addEventListener("click", addFib);
+var fb = document.getElementById("fb");
+fb.addEventListener("click", addFib);
