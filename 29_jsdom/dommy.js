@@ -12,7 +12,6 @@ var changeHeading = function(e) {
 
 var removeItem = function(e) {
     this.remove();      
-    console.log(item);
 };
 
 var lis = document.getElementsByTagName("li");
