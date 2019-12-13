@@ -7,35 +7,35 @@
 
 var changeHeading = function(e) {
     var h = document.getElementById("h");
-    h.innerHTML = e;
+    h.innerHTML = this.innerHTML;
+    console.log(this.innerHTML);
 };
 
 var removeItem = function(e) {
-
+    this.remove();      
+    console.log(item);
 };
 
 var lis = document.getElementsByTagName("li");
 
 for (var i = 0; i < lis.length; i++) {
-    lis[i].addEventListener("mouseover", changeHeading );
+    lis[i].addEventListener("mouseover", changeHeading);
     lis[i].addEventListener("mouseout", () => {
         document.getElementById("h").innerHTML = "Hello World!";
     });
     lis[i].addEventListener("click", removeItem);
 };
 
-// var addItem = function(e) {
-//     var list = document.getElementById("thelist");
-//     var item = document.createElement("li");
-//     ??? = "WORD";
-//     ???
-//     ...
-//     ???
-//     list.???(item);
-// };
+var addItem = function(e) {
+    var list = document.getElementById("thelist");
+    var item = document.createElement("li");
+    item.innerHTML = "WORD";
+    list.appendChild(item);
+    // doesnt allow us to remove, something with lis maybe?
+};
 
-// var button = document.getElementById("b");
-// button.addEventListener("click", addItem);
+var button = document.getElementById("b");
+button.addEventListener("click", addItem);
 
 var fib = function(n) {
     if (n < 2) {
