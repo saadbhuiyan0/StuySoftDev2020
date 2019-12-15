@@ -11,7 +11,8 @@ var changeHeading = function(e) {
 };
 
 var removeItem = function(e) {
-    this.remove();      
+    this.remove();   
+    document.getElementById("h").innerHTML = "Hello World!";
 };
 
 var lis = document.getElementsByTagName("li");
