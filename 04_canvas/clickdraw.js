@@ -19,10 +19,35 @@ imgObj.onload = function() {
 console.log("Masterpiece completed.")
 
 // current drawing mode
-var currentMode = document.getElementById("mode").innerHTML;
+var currentMode = document.getElementById("mode");
+
+// draw function to draw box or dot depending on mode
+var draw = function(e) {
+    if (currentMode.innerHTML == "Draw a Box") {
+        ctx.fillStyle = "#FF00FF";
+        ctx.fillRect(e.clientX, e.clientY, 33, 33);
+    }
+    else {
+        ctx.fillStyle = "#8B008B";
+        ctx.beginPath();
+        ctx.arc(e.clientX, e.clientY, 20, 0, 2 * Math.PI, true);
+        ctx.fill();
+    }
+}
+
+// add event listener to canvas
+c.addEventListener("click", draw);
 
 // toggle drawing mode function
 var toggleMode = function(e) {
+    if (currentMode.innerHTML == "Draw a Box") {
+        currentMode.innerHTML = "Draw a Dot";
+        console.log("Changed drawing mode to: Draw a Dot.")
+    }
+    else {
+        currentMode.innerHTML = "Draw a Box";
+        console.log("Changed drawing mode to: Draw a Box.")
+    }
 }
 
 // event listener to toggle drawing mode
