@@ -6,43 +6,33 @@
 
 var c = document.getElementById("playground"); // retrieve canvas node in DOM via id
 var ctx = c.getContext("2d"); // instantiate a CanvasRenderingctx2D object 
-var ab = document.getElementById("animate"); // retrieve animate button via id
+var ab = document.getElementById("start"); // retrieve animate button via id
 var sb = document.getElementById("stop"); // retrieve stop button via id
 
-// vars used to hold x and y value of the last drawn dot
-var lastX;
-var lastY;
+// canvas center
+var centerX = c.width/2
+var centerY = c.height/2
 
-// function to draw dot and line to last point
-var draw = function(e) {
-    // vars used to hold x and y values for the new dot
-    var newX = e.offsetX;
-    var newY = e.offsetY;
-    // draw a dot
-    ctx.beginPath();
-    ctx.arc(newX, newY, 10, 0, 2 * Math.PI);
-    ctx.closePath();
-    ctx.fill(); 
-    // draw a line to the previous dot
-    ctx.beginPath();
-    ctx.moveTo(newX,newY);
-    ctx.lineTo(lastX, lastY);
-    ctx.stroke();
-    ctx.closePath();
-    // change coordinates of last dot to coordinates of new dot
-    lastX = newX;
-    lastY = newY;
-    console.log("wow")
+// function to start the animation
+var start = function() {
+    window.cancelAnimationFrame(animate);
 }
 
-// function to clear the canvas
-var clear = function(e) {
-    ctx.clearRect(0, 0, c.width, c.height);
-    lastX = undefined;
-    lastY = undefined;
-    console.log("poof");
+// function to animate a circle growing and shrinking
+var animate = function() {
+    console.log(centerX);
+    var radius = 10;
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fill();
 }
 
-// add event listeners for animate and stop
-ab.addEventListener("animate", animate);
+// function to stop the animation
+var stop = function() {
+    window.cancelAnimationFrame(animate);
+}
+
+// add event listeners to start and stop
+ab.addEventListener("start", start);
 sb.addEventListener("stop", stop);
