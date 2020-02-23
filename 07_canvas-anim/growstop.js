@@ -6,33 +6,41 @@
 
 var c = document.getElementById("playground"); // retrieve canvas node in DOM via id
 var ctx = c.getContext("2d"); // instantiate a CanvasRenderingctx2D object 
-var ab = document.getElementById("start"); // retrieve animate button via id
-var sb = document.getElementById("stop"); // retrieve stop button via id
 
-// canvas center
-var centerX = c.width/2
-var centerY = c.height/2
+var r = 20;
+var grow = true;
+var id = 0;
 
-// function to start the animation
-var start = function() {
-    window.cancelAnimationFrame(animate);
-}
-
-// function to animate a circle growing and shrinking
-var animate = function() {
-    console.log(centerX);
-    var radius = 10;
+var draw = function(e) {
+    ctx.clearRect(0,0,c.width,c.height);
     ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.closePath();
+    ctx.arc(c.width/2, c.height/2, r, 0, 2 * Math.PI, true);
     ctx.fill();
+    if (grow) {
+        r += 1;
+        if (r == Math.min(c.height,c.width)/2) {
+            grow = false;
+        }
+    }
+    else {
+        r -= 1;
+        if (r == 0) {
+            grow = true;
+        }
+    }
+    id = window.requestAnimationFrame(draw);
 }
-
-// function to stop the animation
-var stop = function() {
-    window.cancelAnimationFrame(animate);
+  
+var go = document.getElementById("anim");
+var begin = function(e) {
+    window.requestAnimationFrame(draw);
+    go.removeEventListener("click",begin);
 }
-
-// add event listeners to start and stop
-ab.addEventListener("start", start);
-sb.addEventListener("stop", stop);
+go.addEventListener("click",begin);
+  
+var stop = document.getElementById("stop");
+var end = function(e) {
+    window.cancelAnimationFrame(id);
+    go.addEventListener("click",begin);
+}
+stop.addEventListener("click",end);
