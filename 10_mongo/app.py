@@ -1,7 +1,7 @@
 # Saad Bhuiyan and Jackson Zou
 # SoftDev2 pd9
-# K06 -- Canvas
-# 2020-02-11
+# K10 -- Mongo
+# 2020-03-01
 
 
 from pymongo import MongoClient
@@ -18,7 +18,7 @@ def api_data_for_page(page):
     return players
 
 def api_data_json():
-    with open("data.json", "w") as f:
+    with open("balldontlie.json", "w") as f:
         data = {"players":[]}
         players = data["players"]
         for page in range(1,33):
