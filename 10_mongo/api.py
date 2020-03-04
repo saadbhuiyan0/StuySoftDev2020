@@ -19,8 +19,7 @@ def api_data_for_page(page):
 
 def api_data_json():
     with open("balldontlie.json", "w") as f:
-        data = {"players":[]}
-        players = data["players"]
+        players = []
         for page in range(1,33):
             api_data = api_data_for_page(page)
             for player in range(100):
@@ -28,11 +27,11 @@ def api_data_json():
         api_data = api_data_for_page(33)
         for player in range(66):
             players.append(api_data[player])
-        json.dump(data, f)
+        json.dump(players, f)
 
-try:
-    f = open("data.json")
-except FileNotFoundError:
-    api_data_json()
+#try:
+#    f = open("data.json")
+#except FileNotFoundError:
+#    api_data_json()
 
 
