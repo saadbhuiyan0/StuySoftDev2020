@@ -6,51 +6,54 @@
 
 from pymongo import MongoClient
 from bson.json_util import loads
+from pprint import pprint
 
 
-def add_to_db( col , file ):
+def data_to_db(col, file):
 	f = open(file, "r")
-	final = ""
+	item = ""
 	for line in f:
-		final += line
-	#print(final)
-	final = loads(final)
-	#print(final)
-	col.insert(final)
-	print("info gotten")
+		item += line
+	item = loads(item)
+	col.insert(item)
+	print("added data to MongoDB")
 
 
-def printPlayer( item ):
-	final = ""
-	final += "Name: " + item['first_name'] + " " + item['last_name'] + " Team: " + item["team"]["full_name"]
-	print(final)
+def print_player_info(item):
+	pprint(item)
 
 
-def getPlayerName( name, col ):
-	final = col.find({"first_name": name})
-	for item in final:
-		printPlayer( item )
+def get_players_by_first_name(name, col):
+	results = col.find({"first_name": name})
+	for item in results:
+		print_player_info(item)
 
 
-def getTeamName( name, col ):
-	final = col.find({"team.name": name})
-	for item in final:
-		printPlayer( item )
+def get_players_by_last_name(name, col):
+    results = col.find({"last_name": name})
+	for item in results:
+		print_player_info(item)
 
 
-def getConference( conference, col ):
-	final = col.find({"team.conference": conference})
-	for item in final:
-		printPlayer( item )
+def get_players_by_position(position, col):
+    results = col.find({"position": position})
+	for item in results:
+		print_player_info(item)
 
 
-def getDivision( division, col ):
-	final = col.find({"team.division": division})
-	for item in final:
-		printPlayer( item )
+def get_players_by_team_name(name, col):
+	results = col.find({"team.full_name": name})
+	for item in results:
+		print_player_info(item)
 
 
-def getPosition( position, col ):
-	final = col.find({"position": position})
-	for item in final:
-		printPlayer ( item )
+def get_players_by_division(division, col):
+	results = col.find({"team.division": division})
+	for item in results:
+		print_player_info(item)
+
+
+def get_players_by_conference(conference, col):
+	results = col.find({"team.conference": conference})
+	for item in results:
+		print_player_info(item)

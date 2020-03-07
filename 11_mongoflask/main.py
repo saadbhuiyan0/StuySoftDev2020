@@ -11,10 +11,10 @@
 # Balldontlie API: https://www.balldontlie.io/api/v1/players
 
 
-import pymongo, json, pprint
+import pymongo import MongoClient
 from bson.json_util import loads
-from api import api_data_json
-from parse import add_to_db, getPlayerName, getTeamName, getConference, getDivision, getPosition
+from api import api_data_to_json
+from parse import data_to_db, get_players_by_first_name, get_players_by_last_name, get_players_by_position, get_players_by_team_name, get_players_by_division, get_players_by_conference
 
 
 client = pymongo.MongoClient('localhost', 27017) # port 27017
@@ -24,17 +24,13 @@ col = db['nba']
 
 if col.count() == 0:
 	print('hello dere')
-	api_data_json()
-	add_to_db(col, "balldontlie.json")
+	api_data_to_json()
+	data_to_db(col, "balldontlie.json")
 
 
-#answers = col.find({})
-#for line in answers:
-#	print(line)
-
-
-#getPlayerName("James",col)
-#getTeamName("Pacers", col)
-#getConference("East", col)
-#getDivision("Central", col)
-getPosition("C", col)
+# get_players_by_first_name("Mitchell", col)
+# get_players_by_last_name("Robinson", col)
+# get_players_by_position("C", col)
+get_players_by_team_name("New York Knicks", col)
+# get_players_by_division("Atlantic", col)
+# get_players_by_conference("East", col)

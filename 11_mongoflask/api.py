@@ -18,7 +18,7 @@ def api_data_for_page(page):
     return players
 
 
-def api_data_json():
+def api_data_to_json():
     with open("balldontlie.json", "w") as f:
         players = []
         for page in range(1,33):
@@ -29,11 +29,3 @@ def api_data_json():
         for player in range(66):
             players.append(api_data[player])
         json.dump(players, f)
-
-
-#try:
-#    f = open("data.json")
-#except FileNotFoundError:
-#    api_data_json()
-
-
