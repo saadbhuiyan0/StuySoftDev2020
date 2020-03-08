@@ -23,7 +23,7 @@ col = db['nba']
 
 
 if col.count() == 0:
-	print('hello dere')
+	print("building database")
 	api_data_to_json()
 	data_to_db(col, "balldontlie.json")
 

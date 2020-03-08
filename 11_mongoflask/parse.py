@@ -30,8 +30,8 @@ def get_players_by_first_name(name, col):
 
 
 def get_players_by_last_name(name, col):
-    results = col.find({"last_name": name})
-	for item in results:
+    results = col.find({"last_name": name}) 
+	for item in results: 
 		print_player_info(item)
 
 
