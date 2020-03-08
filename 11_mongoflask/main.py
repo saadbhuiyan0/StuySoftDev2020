@@ -11,7 +11,7 @@
 # Balldontlie API: https://www.balldontlie.io/api/v1/players
 
 
-import pymongo import MongoClient
+from pymongo import MongoClient
 from bson.json_util import loads
 from api import api_data_to_json
 from parse import data_to_db, get_players_by_first_name, get_players_by_last_name, get_players_by_position, get_players_by_team_name, get_players_by_division, get_players_by_conference
