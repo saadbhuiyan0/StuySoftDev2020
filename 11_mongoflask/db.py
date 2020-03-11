@@ -20,41 +20,47 @@ def data_to_db(col, file):
 
 def get_players_by_first_name(name, col):
 	results = col.find({"first_name": name})
-	json = {}
+	all = []
 	for item in results:
-		json.append(item)
+		all.append(item)
+	return all
 
 
 def get_players_by_last_name(name, col):
 	results = col.find({"last_name": name})
-	json = {}
+	all = []
 	for item in results:
-		json.append(item)
+		all.append(item)
+	return all
 
 
 def get_players_by_position(position, col):
 	results = col.find({"position": position})
-	json = {}
+	all = []
 	for item in results:
-		json.append(item)
+		all.append(item)
+	return all
 
 
 def get_players_by_team_name(name, col):
 	results = col.find({"team.full_name": name})
-	json = {}
+	all = []
 	for item in results:
-		json.append(item)
+		all.append(item)
+	return all
 
 
 def get_players_by_division(division, col):
 	results = col.find({"team.division": division})
-	json = {}
+	all = []
 	for item in results:
-		json.append(item)
+		all.append(item)
+	return all
 
 
 def get_players_by_conference(conference, col):
 	results = col.find({"team.conference": conference})
-	json = {}
+	all = []
 	for item in results:
-		json.append(item)
+		all.append(item)
+	return all
