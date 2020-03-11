@@ -4,7 +4,7 @@
 # 2020-03-07
 
 
-# We compiled our own dataset by using data available from the Balldontlie API
+# We compiled our own dataset by using data available from the Balldontlie API.
 # We made API calls to collect all the JSON data for each player they had.
 # This includes data such as name, position, team, other team information, etc. 
 # We stored all that data in our own JSON file with all 3000+ players.
@@ -41,9 +41,15 @@ if col.count() == 0:
 
 
 @app.route("/")
-def balldontlie():
+def home():
 	print(app)
-	return render_template("balldontlieform.html")
+	return render_template("index.html")
+
+
+@app.route("/results")
+def results():
+	print(app)
+	return render_template("results.html")
 
 
 if __name__ == "__main__":
