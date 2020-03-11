@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Flask Back - Balldontlie</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<style>
+			body {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="jumbotron" style="background-color: #1F56BA;">
+			<h1 class="display-1">Flask Back</h1>
+			<h4 class="display-4">Saad Bhuiyan and Biraj Chowdhury</h2>
+		</div>
+		<div class="jumbotron" style="background-color: #C9082A;">
+			<h4 class="display-4">About the Dataset</h5>
+			<br>
+			<p>We compiled our own dataset by using data available from the Balldontlie API.
+			We made API calls to collect all the JSON data for each player they had.
+			This includes data such as name, position, team, other team information, etc. 
+			We stored all that data in our own JSON file with all 3000+ players.</p>
+			<a href="https://www.balldontlie.io/api/v1/players">Balldontlie API Link</a>
+		</div>
+		<div class="jumbotron">
+			<h3>Search Players by First Name</h3>
+			<br>
+			<form action="/results">
+				<input type="text" value="First Name">
+				<input type="submit" value="Search">
+			</form>
+		</div>
+		<div class="jumbotron" style="background-color: #1F56BA;">
+			<h3>Search Players by Last Name</h3>
+			<br>
+			<form action="/results">
+				<input type="text" value="Last Name">
+				<input type="submit" value="Search">
+			</form>
+		</div>
+		<div class="jumbotron" style="background-color: #C9082A;">
+			<h3>Search Players by Position</h3>
+			<br>
+			<form action="/results">
+				<select>
+					<option value="G">Guard</option>
+					<option value="F">Forward</option>
+					<option value="C">Center</option>
+				</select>
+				<input type="submit" value="Search">
+			</form>
+		</div>
+		<div class="jumbotron">
+			<h3>Search Players by Team Name</h3>
+			<br>
+			<form action="/results">
+				<select>
+					<option value="Atlanta Hawks">Atlanta Hawks</option>
+					<option value="Boston Celtics">Boston Celtics</option>
+					<option value="Brooklyn Nets">Brooklyn Nets</option>
+					<option value="Charlotte Hornets">Charlotte Hornets</option>
+					<option value="Chicago Bulls">Chicago Bulls</option>
+					<option value="Cleveland Cavaliers">Cleveland Cavaliers</option>
+					<option value="Dallas Mavericks">Dallas Mavericks</option>
+					<option value="Denver Nuggets">Denver Nuggets</option>
+					<option value="Detroit Pistons">Detroit Pistons</option>
+					<option value="Golden State Warriors"></option>
+					<option value="Houston Rockets">Houston Rockets</option>
+					<option value="Indiana Pacers">Indiana Pacers</option>
+					<option value="Los Angeles Clippers">Los Angeles Clippers</option>
+					<option value="Los Angeles Lakers">Los Angeles Lakers</option>
+					<option value="Memphis Grizzlies">Memphis Grizzlies</option>
+					<option value="Miami Heat">Miami Heat</option>
+					<option value="Milwaukee Bucks">Milwaukee Bucks</option>
+					<option value="Minnesota Timberwolves">Minnesota Timberwolves</option>
+					<option value="New Orleans Pelicans">New Orleans Pelicans</option>
+					<option value="New York Knicks">New York Knicks</option>
+					<option value="Oklahoma City Thunder">Oklahoma City Thunder</option>
+					<option value="Orlando Magic">Orlando Magic</option>
+					<option value="Philadelphia 76ers">Philadelphia 76ers</option>
+					<option value="Phoenix Suns">Phoenix Suns</option>
+					<option value="Portland Trail Blazers">Portland Trail Blazers</option>
+					<option value="Sacramento Kings">Sacramento Kings</option>
+					<option value="San Antonio Spurs">San Antonio Spurs</option>
+					<option value="Toronto Raptors">Toronto Raptors</option>
+					<option value="Utah Jazz">Utah Jazz</option>
+					<option value="Washington Wizards">Washington Wizards</option>
+				</select>
+				<input type="submit" value="Search">
+    		</form>
+		</div>
+		<div class="jumbotron" style="background-color: #1F56BA;">
+			<h3>Search Players by Division</h3>
+			<br>
+			<form action="/results">
+				<select>
+					<option value="Atlantic">Atlantic</option>
+					<option value="Central">Central</option>
+					<option value="Northwest">Northwest</option>
+					<option value="Pacific">Pacific</option>
+					<option value="East">Southeast</option>
+					<option value="East">Southwest</option>
+				</select>
+				<input type="submit" value="Search">
+			</form>
+		</div>
+		<div class="jumbotron" style="background-color: #C9082A;">
+			<h3>Search Players by Conference</h3>
+			<br>
+			<form action="/results">
+				<select>
+					<option value="East">Eastern Conference</option>
+					<option value="West">Western Conference</option>
+				</select>
+				<input type="submit" value="Search">
+			</form>
+		</div>
+  </body>
+</html>
