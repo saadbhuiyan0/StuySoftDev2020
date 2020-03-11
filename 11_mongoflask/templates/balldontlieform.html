@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Balldontlie</title>
+    <style> 
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flask Back</h1>
+    <h2>Saad Bhuiyan and Biraj Chowdhury</h2>
+    {% comment %} {{ description }}
+    <!-- the rest of the body is mostly modified based on the data being presented -->
+    <h3> random occupation: </h3>
+    {{ randomOccupation }} <!-- needs to be input from render template -->
+    <h3> occupations.csv to HTML table </h3>
+    <table>
+      <tr> 
+        <th>Job Class</th>
+        <th>Percentage</th>
+      </tr>
+        {% for key, value in dictionary %} <!-- the zip dictionary has a key and value each corresponding to the lists that were zipped -->
+          <tr>
+            <td> {{ key }} </td> <!-- values from jobClass list -->
+            <td> {{ value }} </td> <!-- values from percentage list -->
+          <tr>
+        {% endfor %}
+      <tr>
+        <td>Total</td>
+        <td>99.8</td>
+      </tr>
+    </table> {% endcomment %}
+  </body>
+</html>
