@@ -33,7 +33,7 @@ if col.count() == 0:
 	data_to_db(col, "balldontlie.json")
 
 
-pprint(get_players_by_first_name("Mitchell", col))
+# get_players_by_first_name("Mitchell", col)
 # get_players_by_last_name("Robinson", col)
 # get_players_by_position("C", col)
 # get_players_by_team_name("New York Knicks", col)
@@ -50,6 +50,12 @@ def home():
 @app.route("/results")
 def results():
 	print(app)
+	print(request.args.get("First Name"))
+	print(request.args.get("Last Name"))
+	print(request.args.get("Position"))
+	print(request.args.get("Team Name"))
+	print(request.args.get("Division"))
+	print(request.args.get("Conference"))
 	return render_template("results.html")
 
 

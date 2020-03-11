@@ -27,7 +27,7 @@
 			<h3>Search Players by First Name</h3>
 			<br>
 			<form action="/results">
-				<input type="text" value="First Name">
+				<input type="text" name="First Name" value="First Name">
 				<input type="submit" value="Search">
 			</form>
 		</div>
@@ -35,7 +35,7 @@
 			<h3>Search Players by Last Name</h3>
 			<br>
 			<form action="/results">
-				<input type="text" value="Last Name">
+				<input type="text" name="Last Name" value="Last Name">
 				<input type="submit" value="Search">
 			</form>
 		</div>
@@ -43,7 +43,7 @@
 			<h3>Search Players by Position</h3>
 			<br>
 			<form action="/results">
-				<select>
+				<select name="Position">
 					<option value="G">Guard</option>
 					<option value="F">Forward</option>
 					<option value="C">Center</option>
@@ -55,7 +55,7 @@
 			<h3>Search Players by Team Name</h3>
 			<br>
 			<form action="/results">
-				<select>
+				<select name="Team Name">
 					<option value="Atlanta Hawks">Atlanta Hawks</option>
 					<option value="Boston Celtics">Boston Celtics</option>
 					<option value="Brooklyn Nets">Brooklyn Nets</option>
@@ -94,7 +94,7 @@
 			<h3>Search Players by Division</h3>
 			<br>
 			<form action="/results">
-				<select>
+				<select name="Division">
 					<option value="Atlantic">Atlantic</option>
 					<option value="Central">Central</option>
 					<option value="Northwest">Northwest</option>
@@ -109,7 +109,7 @@
 			<h3>Search Players by Conference</h3>
 			<br>
 			<form action="/results">
-				<select>
+				<select name="Conference">
 					<option value="East">Eastern Conference</option>
 					<option value="West">Western Conference</option>
 				</select>
