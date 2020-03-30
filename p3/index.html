@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+
+<!--
+    Saad Bhuiyan
+    SoftDev2 pd9
+    P03 -- TEDxSoftDev VII
+    2020-03-06
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            body {	
+                margin: 3em; 
+                background-color: #191919;
+                color: white;
+			}
+            #info {
+                margin-top: 1em;
+                margin-left: 2em;
+            }
+            hr {
+                border-color: white;
+            }
+            pre {
+                color: #7FEDF1;
+                font-size: 90%;
+            }
+            .container {
+                background-color: #121212;
+                margin: 1em;
+            }
+        </style>
+        <title>Less - TEDxSoftDev VII</title>
+    </head>
+    <body>
+        <hr>
+        <br>
+        <div style="text-align: center;">
+            <div style="display: inline-block;">
+                <a href="http://lesscss.org/"><img src="https://seeklogo.com/images/L/less-logo-AAE582C286-seeklogo.com.png"></img></a>
+                <br><br>
+                <h4>Saad Bhuiyan<h4>
+                <h4>TEDxSoftDev VII<h4>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h2>What is <a href="http://lesscss.org/">Less</a>?</h2>
+        <div id="info">
+            Less, or Leaner Style Sheets, is a dynamic preprocessor style sheet language. <br>
+            A preprocessor is a program that processes input data and produces output that is input to another program. <br>
+            In this case, the input is Less code which then produces CSS code. <br>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h2>But why should you care? Because CSS sucks.</h2>
+        <div id="info">
+            CSS is so repetitive. You constantly declare the same style rules and it get annoying and frustrating. <br>
+            It's even worse when you have to go back and change that style because you have to change it everywhere you declared it! <br>
+            Good luck trying to read hex codes. <br>
+            As you add more and more styles to your CSS, it gets more and more confusing to traverse through all the layers. <br>
+            This endless cycle of copying and pasting is terrible for scalability and maintainability. <br>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h2>So where does Less fit into all this?</h2>
+        <div id="info">
+            That's a great question (I just asked on your behalf)! <br>
+            See, Less is a CSS preprocessor. Exciting! <br>
+            <a href="https://developer.mozilla.org/en-US/docs/MDN/About">Mozilla Developer Network Web Docs</a> defines a <a href="https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor">CSS preprocessor</a> as “a program that lets you generate CSS from the preprocessor's own unique syntax.” <br>
+            Essentially you would write input code, in this case Less code, and then compile it into CSS. <br>
+            <br>
+            Less simply allows you to write better code. <br>
+            It extends the default capabilities of CSS so you can:
+            <ul>
+                <li>Have an easier time implementing your CSS across different platforms.</li>
+                <li>Organize/modularize your code and thus repeat yourself less.</li>
+                <li>Scale up, update, and maintain the codebase with far less hassle.</li>
+            </ul>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h2>How?</h2>
+        <div id="info">
+            <ul>
+                <li>Variables</li>
+                <li>Mathematical Operations</li>
+                <li>Nesting</li>
+                <li>Mixins</li>
+                <li>Logic</li>
+            </ul>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h2>Variables and Mathematical Operations</h2>
+        <div id="info">
+            You're a CS student, you know what a variable is. <br>
+            In Less, variables allow you to store all your commonly used values in one location lending to modularity. <br>
+            Assigning values that you use repeatedly to variables has many advantages: <br>
+            variables are far easier to read and remember than numbers and hexcodes or whatever so it is easier for everyone in your group when your project's stylesheet grows larger; <br>
+            if you ever want to change the value everywhere, you only need to change it one place; <br>
+            and who doesn't love variables, they just make life easy. <br>
+            In this scenario, I have variables for my primary color and primary background color. <br>
+            If I ever need to update the color scheme for the website, I just need to go to one place instead of 50! <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Input Less Code */
+
+                            @primary-color: #FF00FF;
+                            @primary-bg: #00FF00;
+
+                            body {
+                                color: @primary-color;
+                                background: @primary-bg;
+                            }
+
+                            #header {
+                                color: @primary-color;
+                            }
+                        </code></pre>
+                    </div>
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Output CSS Code */
+
+                            body {
+                                color: #FF00FF;
+                                background: #00FF00;
+                            }
+
+                            #header {
+                                color: #FF00FF;
+                            }
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            Variables are a great way to manipulate numbers that are relative to each other. <br>
+            If you want something to always be twice as large as something, or a certain amount larger, or smaller, or whatever it may be, you can use mathematical operations. <br>
+            You can play around with the values of variables, numbers, and colors with all basic math operations and more you can find in the documentation for <a href="http://lesscss.org/functions/">functions</a>.
+            In this case, my width variable is dependent on the height variable. So the canvas is always twice as wide as it is high and all I need to change is the height and the ratio is unaffected. <br>
+            Less independent declarations, less repetitiveness, easy to work with. <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Input Less Code */ 
+
+                            @primary-color: #900C3F;
+                            @height: 100;
+                            @width: @height * 2;
+
+                            canvas {
+                                color: @primary-color;
+                                height: @height;
+                                width: @width;
+                            }
+                        </code></pre>
+                    </div>
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Output CSS Code */ 
+
+                            canvas {
+                                color: #900C3F;
+                                height: 100;
+                                width: 200;
+                            }
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            Another way to use variables is to create shortcuts/placeholders for paths, URLS, or whatever else you can come up with. <br>
+            Having a variable for the images folder allows me to reference it everytime I want an image and not have to write the whole path to the folder. <br>
+            This also means I only need to the change the path in one place if I move the folder and not in every declaration. <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Input Less Code */ 
+
+                            @images: “../app/bin/img/”
+
+                            header {
+                                background-image: url(“@{images}/nicehead.jpg);
+                            }
+
+                            body {
+                                background-image: url(“@{images}/goodbody.jpg);
+                            }
+                        </code></pre>
+                    </div>
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Output CSS Code */ 
+
+                            header {
+                                background-image: url(“../app/bin/img/nicehead.jpg);
+                            }
+
+                            body {
+                                background-image: url(“../app/bin/img/goodbody.jpg);
+                            }
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h2>Nesting</h2>
+        <div id="info">
+            Nesting allows you to make less independent declarations and create concise rulesets. <br>
+            You can nest the rules for different elements so the element inherits styles according to the hierarchy. <br>
+            It is pretty simple to figure out how it works with a little messing around. <br>
+            This code sets style rules for a multiple elements, but since my general style and theme is the same I can have inheritance do a lot of the work for me. <br>
+            All the elements that inherit styles from a parent will all be updated if I change a rule in the parent. <br>
+            Using nesting allows for much less repetitive code than usual as you make far less declarations. <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Input Less Code */ 
+
+                            #container {
+                                border:1px solid #ddd;
+                                &.dark-border { border:1px solid #333; }
+                                h1 { 
+                                    color:#333; 
+                                    text-align:center; 
+                                }
+                                p { color:@blue;}
+                            }
+                        </code></pre>
+                    </div>
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Output CSS Code */ 
+
+                            #container {
+                                border: 1px solid #ddd;
+                            }
+
+                            #container.dark-border {
+                                border: 1px solid #333;
+                            }
+
+                            #container h1 {
+                                color: #333;
+                                text-align: center;
+                            }
+
+                            #container p {
+                                color: #0098cb;
+                            }   
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h2>Mixins</h2>
+        <div id="info">
+            Mixins allow you combine rulesets from different classes and ids. <br>
+            If you include another class/id in the styles for one class/id, it will inherit all the styles from the parent you're mixing in. <br>
+            That means less lines of codes and less repetitive declarations. <br>
+            If I want all my children rectangles to have the same color and border, I will have every rectangle class inherit the original parent rectangle's style. <br>
+            This way if I want to change how a rectangle behaves, I can change it in the parent class and the changes will be reflected across all rectangles. <br>
+            That makes for simple, modular, and very easy to maintain code. <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Input Less Code */ 
+
+                            #rectangle {
+                                background-color: #4CAF50;
+                                border-radius: 100%;
+                            }
+                            
+                            #small-rectangle {
+                                width: 50px;
+                                height: 50px;
+                                #rectangle
+                            }
+
+                            #big-rectangle {
+                                width: 100px;
+                                height: 100px;
+                                #rectangle
+                            }
+                        </code></pre>
+                    </div>
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Output CSS Code */ 
+
+                            #rectangle {
+                                background-color: #4CAF50;
+                                border-radius: 100%;
+                            }
+                            
+                            #small-rectangle {
+                                width: 50px;
+                                height: 50px;
+                                background-color: #4CAF50;
+                                border-radius: 100%;
+                            }
+
+                            #big-rectangle {
+                                width: 100px;
+                                height: 100px;
+                                background-color: #4CAF50;
+                                border-radius: 100%;
+                            }
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            You can also use inputs when mixing your rulesets. <br> 
+            In this case, size is a variable which defaults to 50px. <br>
+            But when making a big rectangle using the same rules as the rectangle, I can input a new size and Less will change the values for me. <br>
+            This is super convenient and simple to work with. <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Input Less Code */
+
+                            #rectangle(@size: 50px) {
+                                background-color: #4CAF50;
+                                border-radius: 100%;
+                                width: @size;
+                                height: @size;
+                            }
+                            
+                            #big-rectangle {
+                                #rectangle(100px)  
+                            }
+                        </code></pre>
+                    </div>
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Output CSS Code */
+
+                            #rectangle {
+                                background-color: #4CAF50;
+                                border-radius: 100%;
+                                width: 50px;
+                                height: 50px;
+                            }
+
+                            #big-rectangle {
+                                background-color: #4CAF50;
+                                border-radius: 100%;
+                                width: 100px;
+                                height: 100px;
+                            }
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h2>Logic</h2>
+        <div id="info">
+            Less also allows you to use logic to generate style rules. <br>
+            You can mess around with if, when, and conditionals to make your life easier. <br>
+            You can use loops to automatically generate different divs with respective styles so you don’t have to write them all individually. <br>
+            You can use if statements to apply certain styles only under certain conditions. <br>
+            For example, instead of me individually deciding if the background is light or dark and changing the text color appropriately, I will let Less figure it out. <br>
+            I use the built-in Less function lightness(color) and made two conditions, if the background color is light then the text color is black, and if the background color is dark, the text color is white.
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Input Less Code */
+
+                            .text-color (@bg-color) when (lightness(@bg-color) >= 50%) { 
+                                color: black;
+                            }
+
+                            .text-color (@bg-color) when (lightness(@bg-color) < 50%) { 
+                                color: white;
+                            }
+
+                            .text-color (@bg-color) { background-color: @bg-color; }
+
+                            .div-1 { .text-color (yellow); }
+                            .div-2 { .text-color (brown; }
+                        </code></pre>
+                    </div>
+                    <div class="col-md-6">
+                        <pre><code>
+                        /* Output CSS Code */
+
+                            .div-1 { 
+                                background-color: yellow;
+                                color: black; 
+                            }
+                            .div-2 { 
+                                background-color: brown;
+                                color: white; 
+                            }
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            There are many other built-in <a href="http://lesscss.org/functions/">functions</a> you can mess around with including these color functions:
+            <pre><code>
+                saturate(@color, @amount)
+                desaturate(@color, @amount)
+                lighten(@color, @amount)
+                darken(@color, @amount)
+                fadein(@color, @amount)
+                fadeout(@color, @amount)
+                fade(@color, @amount)
+                spin(@color, @amount)
+                mix(@color1, @color2, @weight)
+                grayscale(@color)
+                contrast(@color)
+            </code></pre>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h3 style="text-align: center;"><a href="https://www.stuycs.org/softdev-mykolyk/2020/03/20/p03.html">Less is sometimes more.<a></h3>
+    </body>
+</html>
