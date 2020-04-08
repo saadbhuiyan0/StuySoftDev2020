@@ -1,0 +1,29 @@
+Team D3spacito: Justin Shaw & Saad Bhuiyan
+SoftDev2 pd9
+K17 -- Deeper Into D3
+2020-04-08
+
+
+d3js.org
+
+- declarative approach operating on arbitrary sets of nodes called selections instead of an imperative approach and manual iteration
+- computed properties = bound data
+- transform/manipulate what is there instead of making something new
+- enter and exit selections, you can create new nodes for incoming data and remove outgoing nodes that are no longer needed
+- "D3 lets you transform documents based on data; this includes both creating and destroying elements. D3 allows you to change an existing document in response to user interaction, animation over time, or even asynchronous notification from a third-party. A hybrid approach is even possible, where the document is initially rendered on the server, and updated on the client via D3."
+
+
+Let's make a bar chart
+
+- selection.node returns the element
+- selection.join can enter, update, and exit data
+- join() uses default logic for entering, updating, and exiting data.
+- scaleLinear() can be used to scale graphs
+
+
+Learn D3: By Example
+
+- Observable has an extensive gallery that can showcase features and provide templates for projects in D3.
+- Observable javascript supports a with clause for import statements.
+- Observable dataflow updates data live, making dynamic visualizations easy.
+- Customizable and easily manipulated. Not working as objects that are created and act immutable.

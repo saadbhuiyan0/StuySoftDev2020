@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--D3 demo: hardcoded bars removed, to be generated fr data-->
+<!--
+    Can yield a horizontal bar chart if properly bound to data
+    (steelblue bars, white number overlays)
+    ...but will yield only blank page at first.
+  -->
+<!--
+Team D3spacito: Justin Shaw & Saad Bhuiyan
+SoftDev2 pd9
+K17 -- Deeper Into D3
+2020-04-08
+-->
+
+<style>
+  .chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+  }
+</style>
+
+<div class="chart">
+</div>
+
+<script language="javascript">
+window.onload = function(){
+  //making a bar chart
+  var data = [4, 8, 15, 16, 23, 42];
+  x = d3.scaleLinear()
+    .domain([0, d3.max(data)])
+    .range([0, 420])
+
+  var div = d3.select(".chart")
+    .style("font", "10px sans-serif")
+    .style("text-align", "right")
+    .style("color", "white");
+
+  div.selectAll("div")
+    .data(data)
+    .join("div")
+      .style("background", "steelblue")
+      .style("padding", "3px")
+      .style("margin", "1px")
+      .text(d => d)
+      .transition() //transition the width of the bars
+        .duration(4000)
+        .style("width", d => `${x(d)}px`)
+        .style("background", "red")
+        .style("color", "black");
+
+  //background transition
+  d3.select("body").transition()
+    .duration(4000)
+    .style("background-color", "black");
+  };
+</script>
+<script src="http://d3js.org/d3.v5.min.js"
+	charset="utf-8"></script>
+
+
+
+<!--------------------------------
+    Entering the following commands via console will
+    incrementally re-create your hardcoded chart...
+    //Init your data:
+    var data = [4, 8, 15, 16, 23, 42];
+    //Select your chart.
+    var chart = d3.select(".chart");
+    //Prepare for data join.
+    var bar = chart.selectAll("div");
+    (this defines selection to which you will join data)
+    //Join your data.
+    var barUpdate = bar.data(data);
+    //Instantiate new elements by appending to the “enter selection.”
+    var barEnter = barUpdate.enter().append("div");
+    //Set width of each bar proportional to its data value.
+    barEnter.style("width", function(d) {
+    return d * 10 + "px"; });
+    //Label each bar.
+    barEnter.text(function(d) { return d; });
+  -------------------------------->
+
+  <!--------------------------------
+The page was blank until div elements were appended to each of the bars
+The style function assigned width to each of the bars and the text function gives them labels
+The data variable does not change, the other variables return Pt objects that store groups of elements and their parents
+  -------------------------------->
